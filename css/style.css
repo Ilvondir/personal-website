@@ -1,0 +1,250 @@
+@font-face {
+    font-family: "Aceh";
+    src: "../fonts/Aceh-Regular.ttf";
+}
+
+body::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #555555;
+}
+
+@media (orientation: landscape) {
+
+    body {
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        background-color: white;
+        font-family: "Aceh";
+    }
+
+    .container {
+        width: 100vw;
+        max-height: 90vw;
+    }
+
+
+    .navbar {
+        background-color: white;
+        width: 100vw;
+        height: 8vh;
+        padding: 1vh;
+        box-sizing: border-box;
+    }
+
+    .navbar img {
+        height: 6vh;
+    }
+
+    .navbar>ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        float: right;
+    }
+
+    .navbar>ul>li {
+        display: inline-block;
+        background-color: white;
+        color: #555555;
+        width: 15vw;
+        margin: 0;
+        font-size: 1.8vw;
+        text-align: center;
+    }
+
+    .navbar>ul>li>a {
+        width: 15vw;
+        height: 6vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .portfolio {
+        height: 90vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .portfolio>.me>.left {
+        width: 28vw;
+        height: 30vw;
+        float: left;
+        display: flex;
+        align-items: center;
+        color: black;
+        justify-content: center;
+        margin-right: 2vw;
+    }
+
+    .portfolio>.me>.left>.texts {
+        display: block;
+    }
+
+    .portfolio>.me>.left h1 {
+        font-weight: 800;
+        margin-bottom: 0;
+    }
+
+    .portfolio>.me>.left p {
+        color: #888888;
+        margin-top: 0;
+    }
+
+    .portfolio>.me>.left input {
+        padding: .6vw;
+        font-family: "Aceh";
+        border-radius: 0.5vw;
+        border-color: black;
+        box-sizing: border-box;
+    }
+
+    .portfolio>.me>.left button {
+        padding: .6vw;
+        color: white;
+        background-color: black;
+        border: 0;
+        border-radius: 0.5vw;
+        font-family: "Aceh";
+    }
+
+    #sub {
+        font-style: italic;
+    }
+
+    .portfolio>.me>.right {
+        width: 28vw;
+        height: 30vw;
+        float: right;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .portfolio>.me>.right>img {
+        width: 28vw;
+    }
+
+}
+
+@media (orientation: portrait) {
+    body {
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        background-color: white;
+        font-family: "Aceh";
+    }
+
+    .container {
+        width: 100vw;
+        overflow: hidden;
+    }
+
+
+    .navbar {
+        background-color: white;
+        width: 100vw;
+        clear:both;
+        box-sizing: border-box;
+    }
+
+    .navbar img {
+        display: none;
+    }
+
+    .navbar>ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .navbar>ul>li {
+        background-color: white;
+        width: 100vw;
+        margin: 0;
+        padding: 2.8vw 0;
+        font-size: 4.5vw;
+        text-align: center;
+    }
+
+    .portfolio {
+        width: 100vw;
+        font-size: 120%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .portfolio>.me {
+        width: 100vw;
+        padding: 0 4vw;
+        box-sizing: border-box;
+    }
+
+    .portfolio>.me>.left {
+        width: 95vw;
+        padding: 0 2vw;
+        box-sizing: border-box;
+        clear: both;
+        display: flex;
+        align-items: center;
+        color: black;
+        justify-content: center;
+    }
+
+    .portfolio>.me>.left>.texts {
+        display: block;
+    }
+
+    .portfolio>.me>.left h1 {
+        font-weight: 800;
+        margin-bottom: 0;
+    }
+
+    .portfolio>.me>.left p {
+        color: #888888;
+        margin-top: 0;
+    }
+
+    .portfolio>.me>.left input {
+        padding: .8vw;
+        font-family: "Aceh";
+        border-radius: 0.5vw;
+        border-color: black;
+        box-sizing: border-box;
+    }
+
+    .portfolio>.me>.left button {
+        padding: .8vw;
+        color: white;
+        background-color: black;
+        border: 0;
+        border-radius: 0.8vw;
+        font-family: "Aceh";
+    }
+
+    #sub {
+        font-style: italic;
+    }
+
+    .portfolio>.me>.right {
+        clear:both;
+        margin: 8vw 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .portfolio>.me>.right>img {
+        width: 80vw;
+    }
+}
