@@ -1,5 +1,5 @@
 <?
-setcookie("id", $_GET["id"], 0);
+setcookie("id", $_GET["id"], (time()+60));
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
