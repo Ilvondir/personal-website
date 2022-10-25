@@ -28,7 +28,7 @@ setcookie("id", $_GET["id"], (time()+60));
                     <input type="text" name="person" placeholder="Podaj swoje imię" required><br>
                     <input type="email" name="email" placeholder="Podaj swój adres email" required><br>
                     <textarea name="content" placeholder="Podaj treść wiadomości" required></textarea><br>
-                    <button onclick="send()">Wyślij email</button>
+                    <button>Wyślij email</button>
                 </form>
 <?php
 if (isset($_GET['person']) && isset($_GET['email']) && isset($_GET['content']) && !($_GET["id"]==$_COOKIE["id"])) {
@@ -40,7 +40,7 @@ if (isset($_GET['person']) && isset($_GET['email']) && isset($_GET['content']) &
         echo "<p>Wprowadź wszystkie dane, aby wysłać maila!</p>";
     } else {
         
-        if (mail($email, "Potwierdzenie nadania maila.", "<html><body>Hej!<br>Tu <b>Michał Komsa</b>!<br>Otrzymałem Twojego maila i wkrótce go rozpatrzę.<br><br>Z poważaniem:<br>Komsa Michał</body></html>", "From: Michał Komsa\r\nContent-type: text/html; charset=utf-8") && mail("komsa.m@o2.pl", "Wiadomość ze strony od ". $person, $content, "From: ".$email . "\r\nContent-type: text/html; charset=utf-8")) {
+        if (mail($email, "Potwierdzenie nadania maila.", "<html><body>Hej!<br>Tu <b>Michał Komsa</b>!<br>Otrzymałem Twojego maila i wkrótce go rozpatrzę.<br><br>Z poważaniem:<br>Komsa Michał</body></html>", "From: Michał Komsa\r\nContent-type: text/html; charset=utf-8\r\nX-Mailer: PHP/" . phpversion()) && mail("komsa.m@o2.pl", "Wiadomość ze strony od ". $person, $content, "From: ".$email . "\r\nContent-type: text/html; charset=utf-8\r\nReply-To: ".$email."\r\nX-Mailer: PHP/" . phpversion())) {
             echo "<div style=\"margin-top:2vmax\">Udało się poprawnie wysłać maila. Sprawdź swoją skrzynkę odbiorczą.</div>";
         } else {
             echo "<div style=\"margin-top:2vmax\">Podczas wysyłania maila wystąpił błąd.</div>";
