@@ -1,5 +1,5 @@
 const container = document.querySelector(".container"); 
-const content = document.querySelector(".content")
+const content = document.querySelector(".content");
 
 let dropdownDivsTable = [];
 

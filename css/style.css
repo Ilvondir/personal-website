@@ -141,6 +141,33 @@ a {
         width: 28vw;
     }
 
+
+    .content input, .content textarea {
+        padding: .6vw;
+        margin: 1vw;
+        width: 40%;
+        font-family: "Aceh";
+        border-radius: 0.5vw;
+        font-size: 2.5vmin;
+        border-color: black;
+        box-sizing: border-box;
+    }
+
+    .content textarea {
+        width: 80%;
+        height: 25vmax;
+    }
+
+    .content button {
+        padding: .6vw;
+        color: white;
+        background-color: black;
+        border: 0;
+        font-size: large;
+        border-radius: 0.5vw;
+        font-family: "Aceh";
+    }
+
 }
 
 @media (orientation: portrait) {
@@ -254,5 +281,30 @@ a {
 
     .portfolio>.me>.right>img {
         width: 80vw;
+    }
+
+    .content input, .content textarea {
+        padding: .8vw;
+        font-family: "Aceh";
+        width: 100%;
+        margin: 3vmin 0;
+        border-radius: 0.5vw;
+        border-color: black;
+        font-size: 2.5vmax;
+        box-sizing: border-box;
+    }
+
+    .content textarea {
+        height: 40vmax;
+    }
+
+    .content button {
+        padding: .8vw;
+        color: white;
+        background-color: black;
+        border: 0;
+        font-size: 2.5vmax;
+        border-radius: 0.8vw;
+        font-family: "Aceh";
     }
 }
