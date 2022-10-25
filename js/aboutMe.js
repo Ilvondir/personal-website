@@ -14,7 +14,7 @@ content.appendChild(firstHeader);
 
 for (let i=0; i<3; i++) {
     const dropdownDiv = document.createElement("div");
-    dropdownDiv.style = "font-size:2.5vmin; width:80vw; padding:5vmin; box-sizing:border-box; border-radius:5vmin; box-shadow:1vw 1vw 2vw #555555; background-color: white; margin:0 0 5vw 0; transition:height 0.5s; height:17vmax";
+    dropdownDiv.style = "overflow:hidden; font-size:2.5vmin; width:80vw; padding:5vmin; box-sizing:border-box; border-radius:5vmin; box-shadow:1vw 1vw 2vw #555555; background-color: white; margin:0 0 5vw 0; transition:height 0.5s; height:17vmax";
 
     const header = document.createElement("h1");
     header.style = "margin:0; font-size:3vmax; float:left";
@@ -29,8 +29,12 @@ for (let i=0; i<3; i++) {
     imgArrow.setAttribute("alt", "Strzałka.");
     arrows.appendChild(imgArrow);
     dropdownDiv.appendChild(arrows);
-
     arrows.setAttribute("onclick", "dropdown()");
+
+    const hiddenDiv = document.createElement("div");
+    hiddenDiv.style = "width: 100%; margin-top:7vmax; background-color:black; height:15vmax; clear:both; padding:3vmax; box-sizing:border-box";
+    hiddenDiv.setAttribute("id", "hidden");
+    dropdownDiv.appendChild(hiddenDiv);
 
     content.appendChild(dropdownDiv);
     dropdownDivsTable[i] = dropdownDiv;
@@ -47,7 +51,7 @@ function createSkillBar(level, dropdownDiv) {
 
     const bar = document.createElement("div");
     bar.style = "width:80%; padding:1vmax; box-sizing:border-box; display:flex; align-items:center; justify-content:center; clear:both";
-    dropdownDiv.appendChild(bar);
+    dropdownDiv.insertBefore(bar, dropdownDiv.querySelector("#hidden"));
 
     for (let i=0; i<5;i++) {
         const smallBars = document.createElement("div");
@@ -65,7 +69,7 @@ function createSkillBar(level, dropdownDiv) {
 function dropdown() {
     event.target.style = "width:10vmax; height:5vmax; transition:0.5s; transform:rotate(180deg)";
 
-    event.target.parentNode.parentNode.style = "font-size:2.5vmin; width:80vw; padding:5vmin; box-sizing:border-box; border-radius:5vmin; box-shadow:1vw 1vw 2vw #555555; background-color: white; margin:0 0 5vw 0; transition:height 0.5s; height:40vmax";
+    event.target.parentNode.parentNode.style = "overflow:hidden;font-size:2.5vmin; width:80vw; padding:5vmin; box-sizing:border-box; border-radius:5vmin; box-shadow:1vw 1vw 2vw #555555; background-color: white; margin:0 0 5vw 0; transition:height 0.5s; height:40vmax";
 
     event.target.parentNode.setAttribute("onclick", "getUp()");
 }
@@ -73,7 +77,7 @@ function dropdown() {
 function getUp() {
     event.target.style = "width:10vmax; height:5vmax; transition:0.5s; transform:rotate(0)";
 
-    event.target.parentNode.parentNode.style = "font-size:2.5vmin; width:80vw; padding:5vmin; box-sizing:border-box; border-radius:5vmin; box-shadow:1vw 1vw 2vw #555555; background-color: white; margin:0 0 5vw 0; transition:height 0.5s; height:16vmax";
+    event.target.parentNode.parentNode.style = "overflow:hidden;font-size:2.5vmin; width:80vw; padding:5vmin; box-sizing:border-box; border-radius:5vmin; box-shadow:1vw 1vw 2vw #555555; background-color: white; margin:0 0 5vw 0; transition:height 0.5s; height:17vmax";
 
     event.target.parentNode.setAttribute("onclick", "dropdown()");
 }
