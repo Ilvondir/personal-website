@@ -13,6 +13,14 @@ a {
     color: #555555;
 }
 
+.content {
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 5vmin 10vmax;
+    background-image:url("../img/background.png");
+    background-repeat: no-repeat;
+}
+
 @media (orientation: landscape) {
 
     body {

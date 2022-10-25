@@ -1,9 +1,5 @@
 const container = document.querySelector(".container"); 
-
-const content = document.createElement("div");
-content.style = "width:100vw; box-sizing:border-box; padding: 5vmin 10vmax; background-image:url(\"img/background.png\"); background-repeat:no-repeat;";
-container.appendChild(content);
-
+const content = document.querySelector(".content")
 
 let dropdownDivsTable = [];
 
