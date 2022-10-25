@@ -12,7 +12,7 @@ firstHeader.style = "font-size:4vmax;";
 firstHeader.textContent = "Moje umiejętności";
 content.appendChild(firstHeader);
 
-for (let i=0; i<3; i++) {
+for (let i=0; i<2; i++) {
     const dropdownDiv = document.createElement("div");
     dropdownDiv.style = "overflow:hidden; font-size:2.5vmin; width:80vw; padding:5vmin; box-sizing:border-box; border-radius:5vmin; box-shadow:1vw 1vw 2vw #555555; background-color: white; margin:0 0 5vw 0; transition:height 0.5s; height:17vmax";
 
@@ -46,9 +46,7 @@ createWWWContent(4);
 
 dropdownDivsTable[1].querySelector("h1").textContent = "Java";
 createSkillBar(2, dropdownDivsTable[1]);
-
-dropdownDivsTable[2].querySelector("h1").textContent = "C";
-createSkillBar(1, dropdownDivsTable[2]);
+createJavaContent(4)
 
 
 function createSkillBar(level, dropdownDiv) {
@@ -116,6 +114,39 @@ function createWWWContent (segments) {
             default:
                 categoryHeader.textContent = "PHP";
                 createSkillBar(2, place);
+        }
+    }
+}
+
+function createJavaContent (segments) {
+    for (i=0; i<segments;i++) {
+        const place = dropdownDivsTable[1].querySelector("#hidden");
+
+        const category = document.createElement("div");
+        category.style = "width:100%; margin:5vmax 0 0 0";
+        
+        const categoryHeader = document.createElement("h2");
+        categoryHeader.style = "font-size:2.5vmax; margin:0;";
+        category.prepend(categoryHeader);
+
+        place.appendChild(category);
+
+        switch (i) {
+            case 0:
+                categoryHeader.textContent = "Składnia";
+                createSkillBar(3, place);
+                break;
+            case 1:
+                categoryHeader.textContent = "Semantyka";
+                createSkillBar(3, place);
+                break;
+            case 2:
+                categoryHeader.textContent = "Paradygmat obiektowy";
+                createSkillBar(3, place);
+                break;
+            default:
+                categoryHeader.textContent = "Biblioteka Swing";
+                createSkillBar(1, place);
         }
     }
 }
