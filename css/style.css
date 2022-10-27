@@ -19,7 +19,7 @@ a {
     padding: 5vmin 10vmax;
     background-image:url("../img/background.png");
     background-repeat: no-repeat;
-    min-height: 100vh;
+    min-height: 92vh;
 }
 
 @media (orientation: landscape) {
@@ -34,7 +34,6 @@ a {
 
     .container {
         width: 100vw;
-        max-height: 90vw;
     }
 
 

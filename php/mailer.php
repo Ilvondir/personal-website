@@ -8,40 +8,52 @@ if (isset($_POST['person']) && isset($_POST['email']) && isset($_POST['content']
         echo "Wprowadź wszystkie dane, aby wysłać maila!";
     } else {
 
-        $readHandleToFile = fopen("../xml/newsletter.xml", "r+");
+        $return = "";
 
-        $newData = array();
-        $newData[0] = "\t<subscriber>\n";
-        $newData[1] = "\t\t<name>". $person. "</name>\n";
-        $newData[2] = "\t\t<email>". $email. "</email>\n";
-        $newData[3] = "\t</subscriber>\n";
+        if (isset($_POST["QNewsletter"])) {
+            $readHandleToFile = fopen("../xml/newsletter.xml", "r+");
 
-        $dataFromFile = array();
-        $i = 0;
-        while (!feof($readHandleToFile)) {
-            $line = fgets($readHandleToFile);
-            $dataFromFile[$i] = $line;
-            $i++;
+            $newData = array();
+            $newData[0] = "\t<subscriber>\n";
+            $newData[1] = "\t\t<name>". $person. "</name>\n";
+            $newData[2] = "\t\t<email>". $email. "</email>\n";
+            $newData[3] = "\t</subscriber>\n";
+
+            $dataFromFile = array();
+            $i = 0;
+            while (!feof($readHandleToFile)) {
+                $line = fgets($readHandleToFile);
+                $dataFromFile[$i] = $line;
+                $i++;
+            }
+            fclose($readHandleToFile);
+
+            $writeHandleToFile = fopen("../xml/newsletter.xml", "w+");
+            $newFileData = "";
+
+            for ($i=0;$i<count($dataFromFile)+4;$i++) {
+                if ($i<=1) $newFileData .= $dataFromFile[$i];
+                if ($i>=6) $newFileData .= $dataFromFile[$i-4];
+                if ($i>=2 && $i<=5) $newFileData .= $newData[$i-2];
+            }
+            fwrite($writeHandleToFile, $newFileData);
+
+            fclose($writeHandleToFile);
+
+            $return .= "Email został pomyślnie zapisany do newslettera.<br>";
         }
-        fclose($readHandleToFile);
 
-        $writeHandleToFile = fopen("../xml/newsletter.xml", "w+");
-        $newFileData = "";
+        $mailToRecipient = mail($email, "Potwierdzenie nadania maila.", "<html><body>Hej!<br>Tu <b>Michał Komsa</b>!<br>Otrzymałem Twojego maila i wkrótce go rozpatrzę.<br><br>Z poważaniem:<br>Komsa Michał</body></html>", "From: Michał Komsa\r\nContent-type: text/html; charset=utf-8");
 
-        for ($i=0;$i<count($dataFromFile)+4;$i++) {
-            if ($i<=1) $newFileData .= $dataFromFile[$i];
-            if ($i>=6) $newFileData .= $dataFromFile[$i-4];
-            if ($i>=2 && $i<=5) $newFileData .= $newData[$i-2];
-        }
-        fwrite($writeHandleToFile, $newFileData);
-
-        fclose($writeHandleToFile);
+        $mailToMe = mail("komsa.m@o2.pl", "Wiadomość ze strony od ". $person, $content, "From: ".$email . "\r\nContent-type: text/html; charset=utf-8\r\nReply-To: ".$email);
         
-        if (mail($email, "Potwierdzenie nadania maila.", "<html><body>Hej!<br>Tu <b>Michał Komsa</b>!<br>Otrzymałem Twojego maila i wkrótce go rozpatrzę.<br><br>Z poważaniem:<br>Komsa Michał</body></html>", "From: Michał Komsa\r\nContent-type: text/html; charset=utf-8") && mail("komsa.m@o2.pl", "Wiadomość ze strony od ". $person, $content, "From: ".$email . "\r\nContent-type: text/html; charset=utf-8\r\nReply-To: ".$email)) {
-            echo "Udało się poprawnie wysłać maila. Sprawdź swoją skrzynkę odbiorczą.";
+        if ($mailToRecipient && $mailToMe) {
+            $return .= "Udało się poprawnie wysłać maila. Sprawdź swoją skrzynkę odbiorczą.";
         } else {
-            echo "Podczas wysyłania maila wystąpił błąd.";
+            $return .= "Podczas wysyłania maila wystąpił błąd.";
         }
+
+        echo $return;
     }
 }
 ?>
