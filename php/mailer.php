@@ -7,6 +7,18 @@ if (isset($_POST['person']) && isset($_POST['email']) && isset($_POST['content']
     if ($person=="" || $email=="" || $content=="") {
         echo "Wprowadź wszystkie dane, aby wysłać maila!";
     } else {
+
+        $handleToFile = fopen("../xml/email.xml", "w");
+        $dataForFile = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+        $dataForFile .= "<email>\n";
+        $dataForFile .= "<sender>". $person. "</sender>\n";
+        $dataForFile .= "<recipient>Michał Komsa</recipient>\n";
+        $dataForFile .= "<address>". $email. "</address>\n";
+        $dataForFile .= "<content>". $content. "</content>\n";
+        $dataForFile .= "</email>";
+        fwrite($handleToFile, $dataForFile);
+        fclose($handleToFile);
+
         
         if (mail($email, "Potwierdzenie nadania maila.", "<html><body>Hej!<br>Tu <b>Michał Komsa</b>!<br>Otrzymałem Twojego maila i wkrótce go rozpatrzę.<br><br>Z poważaniem:<br>Komsa Michał</body></html>", "From: Michał Komsa\r\nContent-type: text/html; charset=utf-8\r\nX-Mailer: PHP/" . phpversion()) && mail("komsa.m@o2.pl", "Wiadomość ze strony od ". $person, $content, "From: ".$email . "\r\nContent-type: text/html; charset=utf-8\r\nReply-To: ".$email."\r\nX-Mailer: PHP/" . phpversion())) {
             echo "Udało się poprawnie wysłać maila. Sprawdź swoją skrzynkę odbiorczą.";

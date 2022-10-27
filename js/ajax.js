@@ -11,13 +11,13 @@ $(window).on("load", function() {
 
             $.ajax({
                 type: "POST",
-                url: "mailer.php",
+                url: "php/mailer.php",
                 data: $("form").serialize(),
                 success: function (ret) {
                     $(".formResult").html(ret);
                 }
             });
-            
+
         }
     });
 });

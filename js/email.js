@@ -1,12 +1,7 @@
-const mail = document.querySelector("#email");
-const button = document.querySelector("#subscribe");
-
-button.addEventListener("click", subscribe);
-
-function subscribe() {
-    let address = mail.value;
+$("#subscribe").on("click", function subscribe() {
+    let address = $("#email").val();
 
     if (address != "") {
         alert("Adres " + address + " został zapisany na subskrypcję!")
     }
-}
+});
