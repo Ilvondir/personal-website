@@ -1,14 +1,23 @@
 $(window).on("load", function() {
-    $('form').on('submit', function (e) {
+    $('form').on("submit", function (e) {
         e.preventDefault();
+
+        let person = $("#person").val();
+        let email = $("#email").val();
+        let content = $("#content").val();
   
-        $.ajax({
-            type: 'POST',
-            url: 'mailer.php',
-            data: $('form').serialize(),
-            success: function () {
-            alert('form was submitted');
-            }
-        });
+        if (person=="" || email=="" || content=="") $(".formResult").html("Wprowadź wszystkie dane, aby wysłać maila.");
+        else {
+
+            $.ajax({
+                type: "POST",
+                url: "mailer.php",
+                data: $("form").serialize(),
+                success: function (ret) {
+                    $(".formResult").html(ret);
+                }
+            });
+            
+        }
     });
 });
