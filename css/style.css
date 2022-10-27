@@ -156,7 +156,8 @@ a {
 
     .content textarea {
         width: 80%;
-        height: 25vmax;
+        height: 25vmin;
+        background-image: none;
     }
 
     .content .submit {
@@ -297,6 +298,7 @@ a {
 
     .content textarea {
         height: 40vmax;
+        background-image: none;
     }
 
     .content .submit {
