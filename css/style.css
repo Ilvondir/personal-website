@@ -107,21 +107,17 @@ a {
         margin-top: 0;
     }
 
-    .portfolio>.me>.left input {
-        padding: .6vw;
-        font-family: "Aceh";
-        border-radius: 0.5vw;
-        border-color: black;
-        box-sizing: border-box;
+    .portfolio>.me>.left img {
+        margin-left: 1vmin;
+        margin-top: 2vmax;
+        width: 2.2vmax;
+        height: 2.2vmax;
+        transition: 1s;
     }
 
-    .portfolio>.me>.left button {
-        padding: .6vw;
-        color: white;
-        background-color: black;
-        border: 0;
-        border-radius: 0.5vw;
-        font-family: "Aceh";
+    .portfolio>.me>.left img:hover {
+        transform: scale(1.4) rotateY(360deg);
+        transition: 1s;
     }
 
     #sub {
@@ -251,21 +247,16 @@ a {
         margin-top: 0;
     }
 
-    .portfolio>.me>.left input {
-        padding: .8vw;
-        font-family: "Aceh";
-        border-radius: 0.5vw;
-        border-color: black;
-        box-sizing: border-box;
+    .portfolio>.me>.left img {
+        margin: 0 1.5vmin 0 0;
+        width: 5vmax;
+        height: 5vmax;
+        transition: 1s;
     }
 
-    .portfolio>.me>.left button {
-        padding: .8vw;
-        color: white;
-        background-color: black;
-        border: 0;
-        border-radius: 0.8vw;
-        font-family: "Aceh";
+    .portfolio>.me>.left img:hover {
+        transform: scale(1.6) rotateY(360deg);
+        transition: 1s;
     }
 
     #sub {
