@@ -15,32 +15,39 @@ if (isset($_POST['person']) && isset($_POST['email']) && isset($_POST['content']
 
             $newData = array();
             $newData[0] = "\t<subscriber>\n";
-            $newData[1] = "\t\t<name>". $person. "</name>\n";
-            $newData[2] = "\t\t<email>". $email. "</email>\n";
+            $newData[1] = "\t\t<name>". strtoupper($person). "</name>\n";
+            $newData[2] = "\t\t<email>". strtoupper($email). "</email>\n";
             $newData[3] = "\t</subscriber>\n";
+
+            $alreadyAtNewsletter = false;
 
             $dataFromFile = array();
             $i = 0;
             while (!feof($readHandleToFile)) {
                 $line = fgets($readHandleToFile);
                 $dataFromFile[$i] = $line;
+                if ($newData[2] == $line) $alreadyAtNewsletter = true;
                 $i++;
             }
             fclose($readHandleToFile);
 
-            $writeHandleToFile = fopen("../xml/newsletter.xml", "w+");
-            $newFileData = "";
+            if (!$alreadyAtNewsletter) {
+                $writeHandleToFile = fopen("../xml/newsletter.xml", "w+");
+                $newFileData = "";
 
-            for ($i=0;$i<count($dataFromFile)+4;$i++) {
-                if ($i<=1) $newFileData .= $dataFromFile[$i];
-                if ($i>=6) $newFileData .= $dataFromFile[$i-4];
-                if ($i>=2 && $i<=5) $newFileData .= $newData[$i-2];
+                for ($i=0;$i<count($dataFromFile)+4;$i++) {
+                    if ($i<=1) $newFileData .= $dataFromFile[$i];
+                    if ($i>=6) $newFileData .= $dataFromFile[$i-4];
+                    if ($i>=2 && $i<=5) $newFileData .= $newData[$i-2];
+                }
+
+                fwrite($writeHandleToFile, $newFileData);
+                $return .= "Email został pomyślnie zapisany do newslettera.<br>";
+
+                fclose($writeHandleToFile);
+            } else {
+                $return .= "Ten email jest już zapisany na newsletter.<br>";
             }
-            fwrite($writeHandleToFile, $newFileData);
-
-            fclose($writeHandleToFile);
-
-            $return .= "Email został pomyślnie zapisany do newslettera.<br>";
         }
 
         $mailToRecipient = mail($email, "Potwierdzenie nadania maila.", "<html><body>Hej!<br>Tu <b>Michał Komsa</b>!<br>Otrzymałem Twojego maila i wkrótce go rozpatrzę.<br><br>Z poważaniem:<br>Komsa Michał</body></html>", "From: Michał Komsa\r\nContent-type: text/html; charset=utf-8");

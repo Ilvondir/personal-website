@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <newsletter>
 	<subscriber>
-		<name>Joseph Grund</name>
-		<email>jrund@mail.com</email>
+		<name>EXAMPLE SUBSCRIBER</name>
+		<email>EXAMPLE@MAIL.PL</email>
 	</subscriber>
 </newsletter>
