@@ -16,7 +16,7 @@ a {
 .content {
     width: 100vw;
     box-sizing: border-box;
-    padding: 5vmin 10vmax;
+    padding: 5vmin 10vmin;
     background-image:url("../img/background.png");
     background-repeat: no-repeat;
     min-height: 92vh;
@@ -165,6 +165,21 @@ a {
         font-family: "Aceh";
     }
 
+    .content>.left, .content>.right {
+        width: 50%;
+        padding: 1vmax;
+        box-sizing: border-box;
+        float: left;
+    }
+
+    .content>.left>.subscribersTable {
+        font-size: 1.4vw;
+        border: 0.2vw solid black;
+        max-height: 50vh;
+        overflow: auto;
+        padding: 0.5vw;
+    }
+
 }
 
 @media (orientation: portrait) {
@@ -299,5 +314,20 @@ a {
         font-size: 2.5vmax;
         border-radius: 0.8vw;
         font-family: "Aceh";
+    }
+
+    .content>.left, .content>.right {
+        width: 100%;
+        padding: 2vmax;
+        box-sizing: border-box;
+        float: left;
+    }
+
+    .content>.left>.subscribersTable {
+        font-size: 2.5vw;
+        border: 0.4vw solid black;
+        max-height: 70vh;
+        overflow: auto;
+        padding: 1vw;
     }
 }

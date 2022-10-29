@@ -15,8 +15,8 @@ if (isset($_POST['person']) && isset($_POST['email']) && isset($_POST['content']
 
             $newData = array();
             $newData[0] = "\t<subscriber>\n";
-            $newData[1] = "\t\t<name>". strtoupper($person). "</name>\n";
-            $newData[2] = "\t\t<email>". strtoupper($email). "</email>\n";
+            $newData[1] = "\t\t<name>". mb_strtoupper($person). "</name>\n";
+            $newData[2] = "\t\t<email>". mb_strtoupper($email). "</email>\n";
             $newData[3] = "\t</subscriber>\n";
 
             $alreadyAtNewsletter = false;

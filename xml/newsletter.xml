@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <newsletter>
 	<subscriber>
-		<name>EXAMPLE SUBSCRIBER</name>
-		<email>EXAMPLE@MAIL.PL</email>
+		<name>ALICJA PIŃKO</name>
+		<email>3AD1ASD2@ST.PL</email>
+	</subscriber>
+	<subscriber>
+		<name>ALICJA PIŃKO</name>
+		<email>3AD12@ST.PL</email>
 	</subscriber>
 </newsletter>

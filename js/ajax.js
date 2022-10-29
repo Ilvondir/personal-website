@@ -1,6 +1,8 @@
 $(window).on("load", function() {
-    $('form').on("submit", function (e) {
+    $("form").on("submit", function (e) {
         e.preventDefault();
+
+        $(".formResult").html("Twoje żądanie jest przetwarzane, proszę czekać.");
 
         let person = $("#person").val();
         let email = $("#email").val();
@@ -17,7 +19,6 @@ $(window).on("load", function() {
                     $(".formResult").html(ret);
                 }
             });
-
         }
     });
 });
