@@ -155,7 +155,7 @@ a {
         background-image: none;
     }
 
-    input[type=submit] {
+    .content .submit {
         padding: .6vw;
         color: white;
         background-color: black;
@@ -306,8 +306,8 @@ a {
         background-image: none;
     }
 
-    input[type=submit] {
-        padding: 1.8vmax;
+    .content .submit {
+        padding: .8vw;
         color: white;
         background-color: black;
         border: 0;
