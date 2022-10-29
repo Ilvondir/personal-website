@@ -2,10 +2,18 @@
 <newsletter>
 	<subscriber>
 		<name>ALICJA PIŃKO</name>
-		<email>3AD1ASD2@ST.PL</email>
+		<email>AP123@STMAIL.PL</email>
 	</subscriber>
 	<subscriber>
-		<name>ALICJA PIŃKO</name>
-		<email>3AD12@ST.PL</email>
+		<name>GERWAZY RĘBAJŁO</name>
+		<email>GARWEK@STMAIL.PL</email>
+	</subscriber>
+	<subscriber>
+		<name>GERWAZY RĘBAJŁO</name>
+		<email>GARWEK@STMAIL.PL</email>
+	</subscriber>
+	<subscriber>
+		<name>GERWAZY RĘBAJŁO</name>
+		<email>GARWEK@STMAIL.PL</email>
 	</subscriber>
 </newsletter>
