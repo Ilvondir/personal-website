@@ -48,25 +48,35 @@ function uncheckAllSubscribers() {
 
 function ajaxNewsletter(e) {
     e.preventDefault();
-    document.querySelector(".formResult").textContent = "Twoje żądanie jest przetwarzane, proszę czekać.";
-
-    let xhttp = new XMLHttpRequest();
 
     let subject = document.querySelector("input[name=\"subject\"]").value;
     let content = document.querySelector("textarea").value;
     let sendTo = [];
+    let anySelected = false;
+
+    let xhttp = new XMLHttpRequest();
 
     let subscribers = document.querySelectorAll(".subscribers");
     for (let i=0; i<subscribers.length; i++) {
         sendTo[i] = subscribers[i].checked;
+        if (subscribers[i].checked==true) anySelected = true;
     }
 
-    let data = [subject, content, sendTo];
+    if (anySelected) {
+        document.querySelector(".formResult").textContent = "Twoje żądanie jest przetwarzane, proszę czekać.";
 
-    this.onreadystatechange = function () {
-        if (this.status==200 && this.readyState==4) console.log(this.responseText);
+        let dataToSend = {"subject": subject, "content": content, "sendTo": sendTo};
+
+        $.ajax({
+            type: "POST",
+            url: "php/newsletterSending.php",
+            data: dataToSend,
+            success: function(ret) {
+                $(".formResult").html(ret);
+            }
+        });
+        
+    } else {
+        document.querySelector(".formResult").textContent = "Wybierz przynajmniej jednego odbiorcę.";
     }
-
-    xhttp.open("POST", "php/newsletter.php");
-    xhttp.send(data);
 }
