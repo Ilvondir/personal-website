@@ -1,4 +1,5 @@
 window.addEventListener("load", readXML);
+window.addEventListener("submit", ajaxNewsletter);
 
 function readXML() {
     let xhttp = new XMLHttpRequest();
@@ -9,7 +10,7 @@ function readXML() {
         }
     };
 
-    xhttp.open("GET", "xml/newsletter.xml", true);
+    xhttp.open("GET", "xml/newsletter.xml");
     xhttp.send();
 }
 
@@ -19,7 +20,7 @@ function main(xml) {
 
     let tab = xmlData.getElementsByTagName("subscriber");
     for (let i = 0; i <tab.length; i++) {
-        document.querySelector("table").innerHTML += "<tr><td><input type=\"checkbox\" id=\"person" + (i+1) + "\" class=\"subscribers\"></td><td><label for=\"person" + (i+1) + "\">" + tab[i].getElementsByTagName("name")[0].childNodes[0].nodeValue + "<br>" + tab[i].getElementsByTagName("email")[0].childNodes[0].nodeValue + "</label></td></tr>";
+        document.querySelector("table").innerHTML += "<tr><td><input name=\"subscribers[]\" type=\"checkbox\" id=\"person" + (i+1) + "\" class=\"subscribers\"></td><td><label for=\"person" + (i+1) + "\">" + tab[i].getElementsByTagName("name")[0].childNodes[0].nodeValue + "<br>" + tab[i].getElementsByTagName("email")[0].childNodes[0].nodeValue + "</label></td></tr>";
     }
 }
 
@@ -43,4 +44,29 @@ function uncheckAllSubscribers() {
 
     document.getElementById("checkAll").setAttribute("onchange", "checkAllSubscribers()");
     document.querySelector("label[for=\"checkAll\"]").textContent = "Zaznacz wszystkich";
+}
+
+function ajaxNewsletter(e) {
+    e.preventDefault();
+    document.querySelector(".formResult").textContent = "Twoje żądanie jest przetwarzane, proszę czekać.";
+
+    let xhttp = new XMLHttpRequest();
+
+    let subject = document.querySelector("input[name=\"subject\"]").value;
+    let content = document.querySelector("textarea").value;
+    let sendTo = [];
+
+    let subscribers = document.querySelectorAll(".subscribers");
+    for (let i=0; i<subscribers.length; i++) {
+        sendTo[i] = subscribers[i].checked;
+    }
+
+    let data = [subject, content, sendTo];
+
+    this.onreadystatechange = function () {
+        if (this.status==200 && this.readyState==4) console.log(this.responseText);
+    }
+
+    xhttp.open("POST", "php/newsletter.php");
+    xhttp.send(data);
 }

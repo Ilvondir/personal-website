@@ -172,7 +172,7 @@ a {
         float: left;
     }
 
-    .content>.left>.subscribersTable {
+    .subscribersTable {
         font-size: 1.4vw;
         border: 0.2vw solid black;
         max-height: 50vh;
@@ -323,7 +323,7 @@ a {
         float: left;
     }
 
-    .content>.left>.subscribersTable {
+    .subscribersTable {
         font-size: 2.5vw;
         border: 0.4vw solid black;
         max-height: 70vh;
