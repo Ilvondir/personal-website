@@ -75,6 +75,10 @@ function ajaxNewsletter(e) {
                 $(".formResult").html(ret);
             }
         });
+
+        document.querySelector("input[name=\"subject\"]").value = "";
+        document.querySelector("textarea").value = "";
+
         
     } else {
         document.querySelector(".formResult").textContent = "Wybierz przynajmniej jednego odbiorcę.";

@@ -18,13 +18,24 @@
                 $i++;
             }
 
+            fclose($handleToFile);
+
             $j = 0;
             for ($i=2;$i<count($dataFromFile)-1;$i+=4) {
-                if ($sendToArray[$j]=="true") echo $dataFromFile[$i+1];
+                if ($sendToArray[$j]=="true") {
+
+                    $email = substr($dataFromFile[$i+2], 9, strlen($dataFromFile[$i+2])-18);
+
+                    $header = "From: Michał Komsa\r\n";
+                    $header .= "Content-type: text/html; charset=utf-8";
+
+                    mail($email, $subject, $content, $header);
+                };
                 $j++;
             }
 
-            fclose($handleToFile);
+
+
         }
     }
 ?>
