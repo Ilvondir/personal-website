@@ -16,7 +16,10 @@ $(window).on("load", function() {
                 url: "php/mailer.php",
                 data: $("form").serialize(),
                 success: function (ret) {
-                    $(".formResult").html(ret);
+                    $(".formResult").html(ret)
+                    $("#person").val("");
+                    $("#email").val("");
+                    $("#content").val("");;
                 }
             });
             

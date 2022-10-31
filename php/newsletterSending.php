@@ -17,9 +17,9 @@
                 $dataFromFile[$i] = $line;
                 $i++;
             }
-
             fclose($handleToFile);
 
+            $everythingSended = TRUE;
             $j = 0;
             for ($i=2;$i<count($dataFromFile)-1;$i+=4) {
                 if ($sendToArray[$j]=="true") {
@@ -29,12 +29,13 @@
                     $header = "From: Michał Komsa\r\n";
                     $header .= "Content-type: text/html; charset=utf-8";
 
-                    mail($email, $subject, $content, $header);
+                    if (!mail($email, $subject, $content, $header)) $everythingSended = FALSE;
                 };
                 $j++;
             }
 
-
+            if ($everythingSended) echo "Twój newsletter został pomyślnie wysłany.";
+            else echo "Podczas wysyłania newslettera wystąpił błąd.";
 
         }
     }
