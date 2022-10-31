@@ -4,17 +4,26 @@ Web application created as my portfolio. On the website, the user can send me an
 ## Used Tools
 - HTML 5
 - CSS 3
-- JavaScript ES2021
+- JavaScript ES6
+- JQuery 3.6.0
 - AJAX
 - XML 1.0
 - PHP 8.1.5
 
-### Requirements
+## Requirements
 
 For running the website you need:
 
 - [Apache](https://httpd.apache.org)
 
-#### First Look
+## How to run
 
-![Main page of website]([https://github.com/Ilvondir/www-portfolio/tree/master/img/firstlook.png?raw=true])
+1. Install [XAMPP](https://www.apachefriends.org/pl/index.html).
+2. Execute command `git clone https://github.com/Ilvondir/www-portfolio`.
+3. Move `www-porfolio` folder to `htdocs` XAMPP's folder.
+4. Open XAMPP and start Apache.
+5. Go to web browser and type `localhost/www-portfolio` at URL address field.
+
+## First Look
+
+![firstlook](img/firstlook.png?raw=true)
