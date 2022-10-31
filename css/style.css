@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Aceh";
-    src: "../fonts/Aceh-Regular.ttf";
+    src: url("../fonts/Aceh-Regular.ttf");
 }
 
 body::-webkit-scrollbar {
