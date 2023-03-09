@@ -19,7 +19,7 @@ For running the website you need:
 ## How to run
 
 1. Install XAMPP.
-2. Execute command `git clone https://github.com/Ilvondir/www-portfolio`.
+2. Execute command `git clone https://github.com/Ilvondir/portfolio`.
 3. Move `www-porfolio` folder to `htdocs` XAMPP's folder.
 4. Open XAMPP and start Apache.
 5. Go to web browser and type `localhost/www-portfolio` at URL address field.
