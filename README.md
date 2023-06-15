@@ -30,8 +30,6 @@ For running the website you need:
 |   User  	      |   -   	  | 
 | Administrator 	|  admin  	|
 
-![useCaseDiagram](img/useCaseDiagram.png?raw=true)
-
 ## First Look
 
 ![firstlook](img/firstlook.png?raw=true)
