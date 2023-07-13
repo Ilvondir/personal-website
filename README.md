@@ -1,5 +1,5 @@
-# Portfolio Website
-Web application created as my portfolio. On the website, the user can send me an e-mail and choose whether his address should be added to the newsletter, i.e. added to the XML file. The website allows you to administer the newsletter, which means that it allows you to send e-mail messages to people selected on the list.
+# Personal Website
+Website created as a project during studies, designed as a simple portfolio. On the website, the user can send an e-mail and choose whether his address should be added to the newsletter, i.e. added to the XML file. The website allows you to administer the newsletter, which means that it allows you to send e-mail messages to people selected on the list.
 
 ## Used Tools
 - HTML 5
